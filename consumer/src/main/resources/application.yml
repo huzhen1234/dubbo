@@ -1,0 +1,13 @@
+
+dubbo:
+  application:
+    logger: slf4j
+    name: ConsumerApplication
+  registry:
+    address: nacos://127.0.0.1:8848
+    username: nacos
+    password: nacos
+  protocol:
+    name: dubbo
+server:
+  port: 8081

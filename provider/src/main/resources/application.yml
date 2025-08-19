@@ -1,0 +1,19 @@
+dubbo:
+  application:
+    logger: slf4j
+    name: ProviderApplication
+  registry:
+    address: nacos://127.0.0.1:8848
+    username: nacos
+    password: nacos
+    # 注册模型-- 接口级 interface、应用级 instance 默认是：all
+    register-mode: instance
+  protocol:
+    name: dubbo
+    port: -1
+server:
+  port: 8080
+
+  ## 代理对象拦截调用，按元数据里的协议（dubbo://ip:20880）序列化请求，走 Netty 客户端发给 Provider。
+  #
+  #Provider 在 20880 端口监听，收到请求后反序列化，调用真正的实现类 DemoServiceImpl.sayHello，再返回结果。
